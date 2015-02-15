@@ -66,7 +66,7 @@ data &lt;- read.csv(&quot;activity.csv&quot;)</code></pre>
 <pre class="r"><code>library(ggplot2)
 total.steps &lt;- tapply(data$steps, data$date, FUN = sum, na.rm = TRUE)
 qplot(total.steps, binwidth = 1000, xlab = &quot;total number of steps taken each day&quot;)</code></pre>
-<p><img src="PA1_template_files/figure-html/unnamed-chunk-2-1.png" title="" alt="" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="PA1_template_files/figure-html/unnamed-chunk-2-1.png" title="" alt="" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>mean(total.steps, na.rm = TRUE)</code></pre>
 <pre><code>## [1] 9354.23</code></pre>
 <pre class="r"><code>median(total.steps, na.rm = TRUE)</code></pre>
@@ -79,7 +79,7 @@ averages &lt;- aggregate(x = list(steps = data$steps), by = list(interval = data
     FUN = mean, na.rm = TRUE)
 ggplot(data = averages, aes(x = interval, y = steps)) + geom_line() + xlab(&quot;5-minute interval&quot;) + 
     ylab(&quot;average number of steps taken&quot;)</code></pre>
-<p><img src="PA1_template_files/figure-html/unnamed-chunk-5-1.png" title="" alt="" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="PA1_template_files/figure-html/unnamed-chunk-5-1.png" title="" alt="" style="display: block; margin: auto;" /></p>
 </div>
 <div id="on-average-across-all-the-days-in-the-dataset-the-5-minute-interval-contains-the-maximum-number-of-steps" class="section level3">
 <h3>On average across all the days in the dataset, the 5-minute interval contains the maximum number of steps?</h3>
@@ -110,7 +110,7 @@ filled.data$steps &lt;- mapply(fill.value, filled.data$steps, filled.data$interv
 <p>Now, using the filled data set, let’s make a histogram of the total number of steps taken each day and calculate the mean and median total number of steps.</p>
 <pre class="r"><code>total.steps &lt;- tapply(filled.data$steps, filled.data$date, FUN = sum)
 qplot(total.steps, binwidth = 1000, xlab = &quot;total number of steps taken each day&quot;)</code></pre>
-<p><img src="PA1_template_files/figure-html/unnamed-chunk-9-1.png" title="" alt="" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="PA1_template_files/figure-html/unnamed-chunk-9-1.png" title="" alt="" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>mean(total.steps)</code></pre>
 <pre><code>## [1] 10766.19</code></pre>
 <pre class="r"><code>median(total.steps)</code></pre>
@@ -132,7 +132,7 @@ filled.data$day &lt;- sapply(filled.data$date, FUN = weekday.or.weekend)</code><
 <pre class="r"><code>averages &lt;- aggregate(steps ~ interval + day, data = filled.data, mean)
 ggplot(averages, aes(interval, steps)) + geom_line() + facet_grid(day ~ .) + 
     xlab(&quot;5-minute interval&quot;) + ylab(&quot;Number of steps&quot;)</code></pre>
-<p><img src="PA1_template_files/figure-html/unnamed-chunk-13-1.png" title="" alt="" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="PA1_template_files/figure-html/unnamed-chunk-13-1.png" title="" alt="" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 

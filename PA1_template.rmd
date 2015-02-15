@@ -1,6 +1,7 @@
 ---
 output:
   html_document:
+    keep_md: yes
     self_contained: no
 ---
 #Reproducible Research: Peer Assessment 1
